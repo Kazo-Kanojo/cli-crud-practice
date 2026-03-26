@@ -22,7 +22,7 @@ def list_queue(queue):
     if not queue:
         print("The queue is empty.")
     else:
-        print("\\nCurrent Queue:")
+        print("\nCurrent Queue:")
         for i in range(len(queue)):
             print(f"  {i}º: {queue[i]}")
         print()
@@ -80,30 +80,32 @@ def main():
     print("Welcome! What would you like to do?")
 
     while True:
-        print("\\n--- Menu ---")
+        print("\n--- Menu ---")
         print("1 - Add customer(s) to the queue")
         print("2 - Remove a customer from the queue")
         print("3 - Serve all customers in the queue")
         print("4 - View all customers in the queue")
-        print("5 - Exit")
+        print("5 - Update an costumer")
+        print("6 - Exit the system")
 
         try:
             reply = int(input("Enter the number for your choice: "))
-
-            if reply == 1:
-                add_to_queue(queue)
-            elif reply == 2:
-                remove_from_queue(queue)
-            elif reply == 3:
-                serve_customers(queue)
-            elif reply == 4:
-                list_queue(queue)
-            elif reply == 5:
-                update_queue(queue)
-                break
-            else:
-                print("Invalid choice. Please enter a number from 1 to 5.")
-
+            match reply:
+                case 1:
+                    add_to_queue(queue)
+                case 2:
+                    remove_from_queue(queue)
+                case 3:
+                    serve_customers(queue)
+                case 4:
+                    list_queue(queue)
+                case 5:
+                    update_queue(queue)
+                case 6:
+                    print("Exiting the system...")
+                    break
+                case _:
+                    print("Invalid choice. Please try again.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
