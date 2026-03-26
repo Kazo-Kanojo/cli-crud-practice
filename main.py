@@ -33,10 +33,10 @@ def serve_customers(queue):
     if not queue:
         print("The queue is empty. No one to serve.")
     else:
-        print("\\nServing all customers...")
+        print("\nServing all customers...")
         while queue:
             customer = queue.pop(0)
-            print(f"  Customer '{customer}' has been served.")
+            print(f"\nCustomer '{customer}' has been served.")
         print("All customers have been served. The queue is now empty.")
 
 
@@ -85,7 +85,7 @@ def main():
         print("2 - Remove a customer from the queue")
         print("3 - Serve all customers in the queue")
         print("4 - View all customers in the queue")
-        print("5 - Update an costumer")
+        print("5 - Update a costumer")
         print("6 - Exit the system")
 
         try:
