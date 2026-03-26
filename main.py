@@ -17,7 +17,6 @@ def add_to_queue(queue):
         queue.append(name)
     print(f"{num_names} customer(s) added to the queue successfully.")
 
-
 def list_queue(queue):
     """Lists all the customers currently in the queue."""
     if not queue:
@@ -56,6 +55,23 @@ def remove_from_queue(queue):
     else:
         print(f"Customer '{name_to_remove}' was not found in the queue.")
 
+def update_queue(queue):
+    """Updates the queue based on user input."""
+    if not queue:
+        print("The queue is empty.")
+        return
+    list_queue(queue)
+    name_to_update = input("Input the name of the customer you want to update: ")
+    if name_to_update in queue:
+        for i in range(len(queue)):
+            if queue[i].lower() == name_to_update.lower():
+                new_name = input("Enter the new name: ")
+                queue[i] = new_name
+                print(f"Customer '{name_to_update}' has been updated to '{new_name}'.")
+                break
+    else:
+        print(f"Customer '{name_to_update}' was not found in the queue.")
+
 
 def main():
     """Main function to run the queue management system."""
@@ -83,7 +99,7 @@ def main():
             elif reply == 4:
                 list_queue(queue)
             elif reply == 5:
-                print("Exiting the system...")
+                update_queue(queue)
                 break
             else:
                 print("Invalid choice. Please enter a number from 1 to 5.")
